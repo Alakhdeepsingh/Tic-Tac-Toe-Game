@@ -13,6 +13,15 @@ const changeTurn = ()=>{
 // Function to check for a win
 const checkWin = ()=>{
     let boxtext = document.getElementsByClassName('boxtext');
+    // <div class="box bt-0 bl-0"><span class="boxtext"></span></div>
+    //     <div class="box bt-0"><span class="boxtext"></span></div>
+    //     <div class="box bt-0 br-0"><span class="boxtext"></span></div>
+    //     <div class="box bl-0"><span class="boxtext"></span></div>
+    //     <div class="box"><span class="boxtext"></span></div>
+    //     <div class="box br-0"><span class="boxtext"></span></div>
+    //     <div class="box bl-0 bb-0"><span class="boxtext"></span></div>
+    //     <div class="box bb-0"><span class="boxtext"></span></div>
+    //     <div class="box bb-0 br-0"><span class="boxtext"></span></div>
     let wins = [
         [0, 1, 2, 5, 5, 0],
         [3, 4, 5, 5, 15, 0],
@@ -27,7 +36,7 @@ const checkWin = ()=>{
         if((boxtext[e[0]].innerText === boxtext[e[1]].innerText) && (boxtext[e[2]].innerText === boxtext[e[1]].innerText) && (boxtext[e[0]].innerText !== "") ){
             document.querySelector('.info').innerText = boxtext[e[0]].innerText + " Won"
             isgameover = true
-            document.querySelector('.imgbox').getElementsByTagName('img')[0].style.width = "200px";
+            document.querySelector('.imgbox').getElementsByTagName('img')[0].style.width = "500px";
             document.querySelector(".line").style.transform = `translate(${e[3]}vw, ${e[4]}vw) rotate(${e[5]}deg)`
             document.querySelector(".line").style.width = "20vw";
         }
